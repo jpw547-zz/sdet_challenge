@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Movie Search</title>
+</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body>
+    <div class="base">
+        <div class="wrapper">
+            <div class="header">
+                <h2>Movie Search</h2>
+                <span class="fill-space"></span>
+                <h2><a class="github" href="https://github.com/jpw547/sdet_challenge" target="_blank">Github</a></h2>
+            </div>
+            <div id='app'>
+                <div class="search-row">
+                    <input class="search-input" v-on:keyup.enter="search" v-model="query" placeholder="Search for movies">
+                    <button v-on:click="search" class="search-button">GO</button>
+                </div>
+                
+                
+                <div class="row">
+                    <div v-if="message.length > 0">
+                        <h2>{{message}}</h2>
+                    </div>
+                    <template v-else v-for="m in movies">
+                        <div class="movie-card">
+                            <div class="movie-image-frame">
+                                <img v-if="m.poster_image_url" class="movie-image" :src="m.poster_image_url">
+                            </div>
+                            <h3>{{m.title}}</h3>
+                            <p>{{m.popularity_summary}}</p>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+
+</html>
