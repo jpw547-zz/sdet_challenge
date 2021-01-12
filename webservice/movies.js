@@ -1,7 +1,8 @@
 const axios = require('axios');
 const express = require('express');
 const router = express.Router();
-const key = process.env.TMDB_API_KEY
+// const key = process.env.TMDB_API_KEY
+const key = "d340e77ff5388053c1b5b7421252a1e7"
 
 // get list of movies
 router.get('/', async(req, res) => {
